@@ -1,14 +1,40 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Contact() {
+  const nagivate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
     password: ""
   });
 
-  function handleSubmitForm(event) {
+  async function handleSubmitForm(event) {
     event.preventDefault();
+
+    console.log(formData);
+
+    try {
+      const response = await fetch("/api/users/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stirngify(formData)
+      });
+
+      if (!response.ok) {
+        const errorText = await response.json();
+        throw new Error(errorText);
+      }
+
+      const data = await response.json();
+      console.log("[Frontend] Registration complete.", data);
+
+      nagivate("/login");
+    } catch (error) {
+      console.log("[Frontent] Error registering user.", error);
+    }
   }
 
   function handleInputChange(event) {
