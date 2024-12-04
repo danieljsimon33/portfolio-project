@@ -8,6 +8,7 @@ export default function Contact() {
     email: "",
     password: ""
   });
+  const [message, setMessage] = useState(null);
 
   async function handleSubmitForm(event) {
     event.preventDefault();
@@ -29,10 +30,12 @@ export default function Contact() {
       }
 
       const data = await response.json();
+      setMessage(data.message);
       console.log("[Frontend] Registration complete.", data);
 
       nagivate("/login");
     } catch (error) {
+      setMessage(error.message);
       console.log("[Frontent] Error registering user.", error);
     }
   }
@@ -80,6 +83,8 @@ export default function Contact() {
 
         <button>add</button>
       </form>
+
+      {message && <p>{message}</p>}
     </div>
   );
 }
