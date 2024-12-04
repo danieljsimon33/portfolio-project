@@ -3,6 +3,8 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
+const auth = require("./router/auth");
+
 const app = express();
 app.use(express.json());
 
@@ -19,6 +21,8 @@ mongoose
   .catch((error) => console.log(error, "MongoDB connection attempt failed."));
 
 const PORT = 3000;
+
+app.use("/api/users", auth);
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}`);
