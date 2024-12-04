@@ -36,7 +36,6 @@ const login = async (req, res) => {
 
   try {
     const currentUser = User.findOne({ email });
-
     const passwordsMatch = bcrypt.compare(password, currentUser.password);
 
     if (!passwordsMatch) {
