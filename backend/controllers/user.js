@@ -24,9 +24,30 @@ const register = async (req, res) => {
 
     await newUser.save();
 
-    res.status(201).json({ message: "User registered successfully" });
+    res.status(201).json({ message: "[Backend] User registered successfully" });
   } catch (error) {
-    console.log("Error in registration", error);
+    console.log("[Backend] Error in registration", error);
     res.status(401).json({ message: "[Backend] Error registering user." });
   }
 };
+
+const login = async (req, res) => {
+  const { email, password } = req.body;
+
+  try {
+    const currentUser = User.findOne({ email });
+
+    const passwordsMatch = bcrypt.compare(password, currentUser.password);
+
+    if (!passwordsMatch) {
+      return res.status(401).json({ message: "[Backend] Incorrect password." });
+    }
+
+    res.status(200).json({ message: "[Backend] Login successful." });
+  } catch (error) {
+    console.log("[Backend] Error logging in user.", error);
+    res.status(401).json({ message: "[Backend] Error loggin in user.", error });
+  }
+};
+
+module.exports = { register, login };
