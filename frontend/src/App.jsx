@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import NavBar from "./components/navbar/NavBar";
 import About from "./components/about/About";
 import Home from "./components/home/Home";
-import Contact from "./components/contact/Contact";
+import Register from "./components/auth/Register";
 
 export default function App() {
   return (
@@ -14,7 +14,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </div>
   );

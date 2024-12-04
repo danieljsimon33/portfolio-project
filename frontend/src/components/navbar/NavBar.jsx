@@ -17,8 +17,8 @@ export default function NavBar() {
         </li>
         <li>
           {/* dropdown menu ideally goes here */}
-          <Link className="nav-link" to="/contact">
-            Contact
+          <Link className="nav-link" to="/register">
+            Register
           </Link>
         </li>
       </ul>
