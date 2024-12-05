@@ -6,6 +6,8 @@ import Home from "./components/home/Home";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 
+import {} from "./utilities/authFunctions";
+
 export default function App() {
   return (
     <div className="app">
