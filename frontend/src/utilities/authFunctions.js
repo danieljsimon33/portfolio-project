@@ -1,4 +1,4 @@
-export function getToken(key) {
+export function getToken() {
   return localStorage.getItem("token");
 }
 
@@ -6,16 +6,26 @@ export function deleteToken() {
   localStorage.removeItem("token");
 }
 
-/* 
-fetch from token (token) {
-- GET HTTP request
-- body: `Bearer ${token}`
-- return the user object
-}
+export async function fetchUserFromToken(token) {
+  try {
+    const response = await fetch("http://localhost:3000/validate-token", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        authentication: `Bearer ${token}`
+      }
+    });
 
-check if authenticated () {
-- get token
-- if token, get user from token
-- return user ? user : null
+    if (!response.ok) {
+      const errorText = await response.text();
+      throw new Error(errorText);
+    }
+
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.log("[Frontend] Issue fetching user.", error);
+    return null;
+  }
 }
-*/
