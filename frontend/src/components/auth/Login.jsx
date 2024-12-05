@@ -32,6 +32,8 @@ export default function Login() {
       setMessage(data.message);
       console.log("[Frontend] Login complete.", data);
 
+      localStorage.setItem("token", data.userData.token);
+
       nagivate("/");
     } catch (error) {
       setMessage(error.message);
