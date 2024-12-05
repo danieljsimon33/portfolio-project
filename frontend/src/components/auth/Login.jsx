@@ -30,7 +30,7 @@ export default function Login() {
 
       const data = await response.json();
       setMessage(data.message);
-      console.log("[Frontend] Login complete.", data);
+      console.log("[Frontend] Login complete", data);
 
       localStorage.setItem("token", data.userData.token);
 
