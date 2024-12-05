@@ -1,18 +1,19 @@
-// stuff
+const jwt = require("jsonwebtoken");
 
-/* 
-import jwt
-
-async func authenticateUser(req, res, next) {
-  split the req and extract the token
+const authenticateUser = async (req, res, next) => {
+  const token = req.body.split(" ")[1];
 
   try {
-    !token ?
-      return access denied
-  
-    else
-      bool verif = jwt.verify(env key stuff)
-      next();
+    if (!token) {
+      return res
+        .status(401)
+        .json({ message: "[Backend] Token not found, access deined." });
+    }
+    const verified = jwt.verify(process.env.JWT_KEY);
+    next();
+  } catch (error) {
+    res.status(401).json({ message: "[Backend] Authorization failed." });
   }
-}
-*/
+};
+
+module.exports = authenticateUser;
