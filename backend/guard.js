@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 const authenticateUser = async (req, res, next) => {
-  const token = req.body.split(" ")[1];
+  const token = req.headers.authorization?.split(" ")[1];
 
   try {
     if (!token) {
@@ -10,6 +10,7 @@ const authenticateUser = async (req, res, next) => {
         .json({ message: "[Backend] Token not found, access deined." });
     }
     const verified = jwt.verify(process.env.JWT_KEY);
+    req.user = verified;
     next();
   } catch (error) {
     res.status(401).json({ message: "[Backend] Authorization failed." });

@@ -9,7 +9,7 @@ router.post("/register", userController.register);
 router.post("/login", userController.login);
 
 router.get("/validate-token", authenticateUser, (req, res) =>
-  res.status(200).json({ message: "[Backend] Token verified." })
+  res.status(200).json({ user: req.user, message: "[Backend] Token verified." })
 );
 
 module.exports = router;
