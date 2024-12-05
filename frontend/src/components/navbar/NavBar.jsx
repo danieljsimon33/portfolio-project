@@ -16,9 +16,13 @@ export default function NavBar() {
           </Link>
         </li>
         <li>
-          {/* dropdown menu ideally goes here */}
           <Link className="nav-link" to="/register">
             Register
+          </Link>
+        </li>
+        <li>
+          <Link className="nav-link" to="/login">
+            Log In
           </Link>
         </li>
       </ul>
