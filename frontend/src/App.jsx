@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 import NavBar from "./components/navbar/NavBar";
 import About from "./components/about/About";
@@ -6,7 +7,7 @@ import Home from "./components/home/Home";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 
-import {} from "./utilities/authFunctions";
+import { fetchUserFromToken } from "./utilities/authFunctions";
 
 /* 
 const [user, setUser] = useState(null);
@@ -38,6 +39,22 @@ no?
 */
 
 export default function App() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      const newUser = fetchUserFromToken(token);
+      console.log(newUser);
+      if (user) {
+        setUser(newUser.user);
+      } else {
+        localStorage.removeItem("token");
+      }
+    }
+  });
+
   return (
     <div className="app">
       <header>
