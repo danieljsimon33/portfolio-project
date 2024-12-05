@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get("/default-route", (req, res) =>
-  res.json({ message: "Connection established." })
+  res.json({ message: "[Backend] Connection established." })
 );
 
 // #prettier-ignore
