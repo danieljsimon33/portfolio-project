@@ -47,10 +47,10 @@ export default function Register() {
   }
 
   return (
-    <div className="register-container">
+    <div className="auth-container">
       <h1>Register Form</h1>
 
-      <form className="register-form" onSubmit={handleSubmitForm}>
+      <form className="auth-form" onSubmit={handleSubmitForm}>
         <label htmlFor="email">Email</label>
         <input
           type="email"

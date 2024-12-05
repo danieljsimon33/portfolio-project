@@ -46,10 +46,10 @@ export default function Login() {
   }
 
   return (
-    <div className="register-container">
+    <div className="auth-container">
       <h1>Log In</h1>
 
-      <form className="register-form" onSubmit={handleSubmitForm}>
+      <form className="auth-form" onSubmit={handleSubmitForm}>
         <label htmlFor="email">Email</label>
         <input
           type="email"
