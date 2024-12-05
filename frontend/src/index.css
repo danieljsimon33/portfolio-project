@@ -1,10 +1,9 @@
-/* * {
+* {
   direction: ltr;
   background-color: #2d2d34;
 }
 
 ul {
-  background-color: #efb7cf;
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -21,4 +20,4 @@ a {
   color: #b3b3b3;
   text-decoration: none;
   background-color: inherit;
-} */
+}

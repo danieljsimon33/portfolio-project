@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Contact() {
+export default function Register() {
   const nagivate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
@@ -81,7 +81,7 @@ export default function Contact() {
           onChange={handleInputChange}
         />
 
-        <button>add</button>
+        <button>Register</button>
       </form>
 
       {message && <p>{message}</p>}
