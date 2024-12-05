@@ -43,7 +43,14 @@ const login = async (req, res) => {
       return res.status(401).json({ message: "[Backend] Incorrect password." });
     }
 
-    res.status(200).json({ message: "[Backend] Login successful." });
+    const token = jwt.sign({ id: currentUser._id }, "supersecretkey", {
+      expiresIn: "1h"
+    });
+
+    res.status(200).json({
+      message: "[Backend] Login successful.",
+      userData: { userId: currentUser._id, email: currentUser.email, token }
+    });
   } catch (error) {
     console.log("[Backend] Error logging in user.", error);
     res.status(401).json({ message: "[Backend] Error loggin in user.", error });
