@@ -2,7 +2,7 @@
 
 ### Backend
 
-- [ ] rename all instances of Register to SignUp or Signup (I gotta decide)
+- [ ] rename all instances of Register to Signup (I gotta decide)
 - [ ] Authentication stuff
   - [ ] new base route in server.js
   - [ ] new routes in /router/auth.js, to be renamed authRouter.js
