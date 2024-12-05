@@ -21,7 +21,7 @@ export default function Contact() {
         headers: {
           "Content-Type": "application/json"
         },
-        body: JSON.stirngify(formData)
+        body: JSON.stringify(formData)
       });
 
       if (!response.ok) {
@@ -36,7 +36,7 @@ export default function Contact() {
       nagivate("/login");
     } catch (error) {
       setMessage(error.message);
-      console.log("[Frontent] Error registering user.", error);
+      console.log("[Frontend] Error registering user.", error);
     }
   }
 
@@ -51,13 +51,23 @@ export default function Contact() {
       <h1>Register Form</h1>
 
       <form className="register-form" onSubmit={handleSubmitForm}>
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email"
+          required={true}
+          onChange={handleInputChange}
+        />
+
         <label htmlFor="username">Username</label>
         <input
           type="text"
           name="username"
           id="username"
           placeholder="Username"
-          required="true"
+          required={true}
           onChange={handleInputChange}
         />
 
@@ -67,17 +77,7 @@ export default function Contact() {
           name="password"
           id="password"
           placeholder="Password"
-          required="true"
-          onChange={handleInputChange}
-        />
-
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email"
-          required="true"
+          required={true}
           onChange={handleInputChange}
         />
 
