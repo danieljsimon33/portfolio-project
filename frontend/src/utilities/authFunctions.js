@@ -1,12 +1,15 @@
 export async function fetchUserFromToken(token) {
   try {
-    const response = await fetch("http://localhost:3000/validate-token", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        authentication: `Bearer ${token}`
+    const response = await fetch(
+      "http://localhost:3000/api/users/validate-token",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`
+        }
       }
-    });
+    );
 
     if (!response.ok) {
       const errorText = await response.text();

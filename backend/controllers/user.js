@@ -43,7 +43,7 @@ const login = async (req, res) => {
       return res.status(401).json({ message: "[Backend] Incorrect password." });
     }
 
-    const token = await jwt.sign({ id: currentUser._id }, "supersecretkey", {
+    const token = await jwt.sign({ id: currentUser._id }, process.env.JWT_KEY, {
       expiresIn: "1h"
     });
 

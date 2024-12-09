@@ -9,7 +9,7 @@ const authenticateUser = async (req, res, next) => {
         .status(401)
         .json({ message: "[Backend] Token not found, access deined." });
     }
-    const verified = jwt.verify(process.env.JWT_KEY);
+    const verified = jwt.verify(token, process.env.JWT_KEY);
     req.user = verified;
     next();
   } catch (error) {

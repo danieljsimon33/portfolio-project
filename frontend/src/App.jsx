@@ -42,17 +42,22 @@ export default function App() {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    const token = localStorage.getItem("token");
+    async function checkUser() {
+      const token = localStorage.getItem("token");
 
-    if (token) {
-      const newUser = fetchUserFromToken(token);
-      console.log(newUser);
-      if (user) {
-        setUser(newUser.user);
-      } else {
-        localStorage.removeItem("token");
+      if (token) {
+        const newUser = await fetchUserFromToken(token);
+        console.log(newUser);
+        if (!user) {
+          console.log("NEW USER");
+
+          setUser(newUser);
+        } else {
+          localStorage.removeItem("token");
+        }
       }
     }
+    checkUser();
   }, []);
 
   return (
