@@ -13,9 +13,9 @@
 
 ### Frontend
 
-- [ ] Authentication logic in App.jsx
+- [x] Authentication logic in App.jsx
   - [x] At the top of the file (code that executes once or is in a useEffect loop thing)
-  - [ ] In the return statement
+  - [x] In the return statement
 - [ ] Styling
   - [ ] Update stuff to use MUI
 - [ ]
