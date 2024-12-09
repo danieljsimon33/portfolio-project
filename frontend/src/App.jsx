@@ -49,8 +49,6 @@ export default function App() {
         const newUser = await fetchUserFromToken(token);
         console.log(newUser);
         if (!user) {
-          console.log("NEW USER");
-
           setUser(newUser);
         } else {
           localStorage.removeItem("token");
@@ -63,7 +61,7 @@ export default function App() {
   return (
     <div className="app">
       <header>
-        <NavBar user={user} />
+        <NavBar />
       </header>
       <Routes>
         <Route path="/" element={<Landing />} />

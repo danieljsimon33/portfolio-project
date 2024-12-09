@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import "../../index.css";
 
-export default function NavBar({ user }) {
+export default function NavBar() {
   const navigate = useNavigate();
   return (
     <nav className="nav-bar">
@@ -16,7 +16,7 @@ export default function NavBar({ user }) {
             About Me
           </Link>
         </li>
-        {!user ? (
+        {!localStorage.getItem("token") ? (
           <>
             <li>
               <Link className="nav-link" to="/register">
