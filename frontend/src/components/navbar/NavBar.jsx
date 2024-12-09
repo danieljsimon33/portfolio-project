@@ -16,7 +16,7 @@ export default function NavBar({ user }) {
             About Me
           </Link>
         </li>
-        {user ? (
+        {!user ? (
           <>
             <li>
               <Link className="nav-link" to="/register">
@@ -31,19 +31,15 @@ export default function NavBar({ user }) {
           </>
         ) : (
           <li>
-            {!user ? (
-              <p>logged out</p>
-            ) : (
-              <button
-                className="nav-button"
-                onClick={() => {
-                  localStorage.removeItem("token");
-                  navigate("/login");
-                }}
-              >
-                Log Out
-              </button>
-            )}
+            <button
+              className="nav-button"
+              onClick={() => {
+                localStorage.removeItem("token");
+                navigate("/login");
+              }}
+            >
+              Log Out
+            </button>
           </li>
         )}
       </ul>
