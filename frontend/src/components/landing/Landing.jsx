@@ -1,4 +1,4 @@
-export default function Home() {
+export default function Landing() {
   return (
     <div className="page-container">
       <p>

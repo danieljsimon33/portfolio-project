@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 
 import NavBar from "./components/navbar/NavBar";
 import About from "./components/about/About";
-import Home from "./components/home/Home";
+import Landing from "./components/landing/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 
@@ -61,7 +61,7 @@ export default function App() {
         <NavBar />
       </header>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing />} />
         <Route path="/about" element={<About />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
