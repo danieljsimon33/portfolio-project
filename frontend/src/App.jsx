@@ -6,6 +6,7 @@ import About from "./components/about/About";
 import Landing from "./components/landing/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
+import Logout from "./components/auth/Logout";
 
 import { fetchUserFromToken } from "./utilities/authFunctions";
 
@@ -63,9 +64,9 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/about" element={<About />} />
-
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
       </Routes>
     </div>
   );
