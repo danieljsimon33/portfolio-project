@@ -9,6 +9,7 @@ export default function About() {
       <p>
         I also enjoy learning about new and developing technologies, especially in the consumer market.
       </p>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, placeat nesciunt voluptatem nam esse perspiciatis eius cumque labore possimus? Sit suscipit laudantium, ab minima vitae at maiores, laboriosam corrupti quaerat dicta beatae error molestiae reiciendis. Possimus, et rerum. Obcaecati, voluptas, delectus fuga perferendis sequi fugiat, commodi a voluptatum ratione rem quidem veritatis autem eveniet ullam unde quos saepe itaque. Inventore vitae, doloribus exercitationem doloremque placeat officiis deleniti autem praesentium beatae veritatis. Cumque facere corporis ipsum at aperiam id sequi doloribus. Suscipit corrupti perferendis quam dolorem non quidem iste laudantium nemo ex. Quos voluptates blanditiis quidem provident sit est, perferendis tempore.</p>
     </div>
   );
 }
