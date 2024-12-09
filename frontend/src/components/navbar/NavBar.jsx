@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../../index.css";
 
 export default function NavBar({ user }) {
+  const navigate = useNavigate();
   return (
     <nav className="nav-bar">
       <ul className="nav-list">
@@ -30,9 +31,15 @@ export default function NavBar({ user }) {
           </>
         ) : (
           <li>
-            <Link className="nav-link" to="/logout">
+            <button
+              className="nav-button"
+              onClick={() => {
+                localStorage.removeItem("token");
+                navigate("/");
+              }}
+            >
               Log Out
-            </Link>
+            </button>
           </li>
         )}
       </ul>
