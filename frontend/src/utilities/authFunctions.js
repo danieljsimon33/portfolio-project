@@ -1,11 +1,3 @@
-export function getToken() {
-  return localStorage.getItem("token");
-}
-
-export function deleteToken() {
-  localStorage.removeItem("token");
-}
-
 export async function fetchUserFromToken(token) {
   try {
     const response = await fetch("http://localhost:3000/validate-token", {
