@@ -59,7 +59,7 @@ export default function App() {
   return (
     <div className="app">
       <header>
-        <NavBar />
+        <NavBar user={user} />
       </header>
       <Routes>
         <Route path="/" element={<Landing />} />
