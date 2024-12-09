@@ -53,7 +53,7 @@ export default function App() {
         localStorage.removeItem("token");
       }
     }
-  });
+  }, []);
 
   return (
     <div className="app">

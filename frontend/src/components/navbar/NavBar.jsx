@@ -16,7 +16,7 @@ export default function NavBar({ user }) {
             About Me
           </Link>
         </li>
-        {user ? (
+        {!user ? (
           <>
             <li>
               <Link className="nav-link" to="/register">
