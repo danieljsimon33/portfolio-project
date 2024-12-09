@@ -36,14 +36,14 @@ const login = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const currentUser = User.findOne({ email });
-    const passwordsMatch = bcrypt.compare(password, currentUser.password);
+    const currentUser = await User.findOne({ email });
+    const passwordsMatch = await bcrypt.compare(password, currentUser.password);
 
     if (!passwordsMatch) {
       return res.status(401).json({ message: "[Backend] Incorrect password." });
     }
 
-    const token = jwt.sign({ id: currentUser._id }, "supersecretkey", {
+    const token = await jwt.sign({ id: currentUser._id }, "supersecretkey", {
       expiresIn: "1h"
     });
 
