@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "../../index.css";
 
-export default function NavBar() {
+export default function NavBar({ user }) {
   return (
     <nav className="nav-bar">
       <ul className="nav-list">
@@ -15,16 +15,26 @@ export default function NavBar() {
             About Me
           </Link>
         </li>
-        <li>
-          <Link className="nav-link" to="/register">
-            Register
-          </Link>
-        </li>
-        <li>
-          <Link className="nav-link" to="/login">
-            Log In
-          </Link>
-        </li>
+        {user ? (
+          <>
+            <li>
+              <Link className="nav-link" to="/register">
+                Register
+              </Link>
+            </li>
+            <li>
+              <Link className="nav-link" to="/login">
+                Log In
+              </Link>
+            </li>
+          </>
+        ) : (
+          <li>
+            <Link className="nav-link" to="/logout">
+              Log Out
+            </Link>
+          </li>
+        )}
       </ul>
     </nav>
   );
