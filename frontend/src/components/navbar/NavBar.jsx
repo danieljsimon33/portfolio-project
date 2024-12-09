@@ -35,7 +35,7 @@ export default function NavBar({ user }) {
               className="nav-button"
               onClick={() => {
                 localStorage.removeItem("token");
-                navigate("/");
+                navigate("/login");
               }}
             >
               Log Out
