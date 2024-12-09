@@ -48,5 +48,10 @@ export default function NavBar({ user }) {
 }
 
 /* 
+import Button from "@mui/material/Button";
 
+...
+ex def func ButtonElement({children, ...props})
+
+return <Button {...props}>{children}</Button>
 */
