@@ -5,3 +5,9 @@ The goal of this project is to showcase the skills I've learned during my FullSt
 Additionally, I began learning how to use Git and GitHub using this project.
 
 Stuff I learned during this course:
+- User authentication
+  - Logging in and out, utilizing a 
+- Using databases
+- HTTP requests
+  - API calls
+  - Using third-party databases
