@@ -10,8 +10,8 @@ export default function RockPaperScissors() {
     gameResult: null // this will usually be a number 1-3 that indicates win/loss/tie
   });
   const [gameStatsText, setGameStatsText] = useState({
-    playerMoveText: "",
-    computerMoveText: "",
+    playerMoveText: null,
+    computerMoveText: null,
     gameResultText: ""
   });
   const [isAutoPlaying, setIsAutoPlaying] = useState(false);
@@ -37,18 +37,26 @@ export default function RockPaperScissors() {
       <div className="results-board">
         <p className="picks">
           You picked:
-          <img
-            src={`rps-images/${gameStatsText.playerMoveText}-emoji.png`}
-            alt="player move"
-          />
+          {gameStatsText.playerMoveText ? (
+            <img
+              src={`rps-images/${gameStatsText.playerMoveText}-emoji.png`}
+              alt="player move"
+            />
+          ) : (
+            " no move selected. "
+          )}
           Computer picked:
-          <img
-            src={`rps-images/${gameStatsText.computerMoveText}-emoji.png`}
-            alt="computer move"
-          />
+          {gameStatsText.computerMoveText ? (
+            <img
+              src={`rps-images/${gameStatsText.computerMoveText}-emoji.png`}
+              alt="computer move"
+            />
+          ) : (
+            " please select a move to start a round."
+          )}
         </p>
         <p className="results">
-          Result:
+          Results:
           {gameStats.gameResult === null
             ? ""
             : gameStats.gameResult === 1
@@ -58,8 +66,8 @@ export default function RockPaperScissors() {
             : "tie"}
         </p>
         <p className="scores">
-          Wins: {gameStats.scores.wins} Losses: {gameStats.scores.losses}
-          Ties: {gameStats.scores.ties}
+          Wins: {gameStats.scores.wins} Losses: {gameStats.scores.losses} Ties:{" "}
+          {gameStats.scores.ties}
         </p>
       </div>
 
