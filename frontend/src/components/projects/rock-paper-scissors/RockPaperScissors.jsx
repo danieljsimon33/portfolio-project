@@ -14,14 +14,17 @@ export default function RockPaperScissors() {
   return (
     <div className="page-container">
       <h2>Rock Paper Scissors</h2>
-      <div className="game-board"></div>
+      <div className="game-board">
+        <button className="rock-button">
+          <img src="rps-images/rock-emoji.png" alt="" />
+        </button>
+        <button className="paper-button">
+          <img src="rps-images/paper-emoji.png" alt="" />
+        </button>
+        <button className="scissors-button">
+          <img src="rps-images/scissors-emoji.png" alt="" />
+        </button>
+      </div>
     </div>
   );
 }
-
-/* 
-I'm going to add in the code from my original project and adapt it to being in a jsx file rather than separate html and js files, and only then will I add a leaderboard, backend and user integration, etc.
-
-
-
-*/
