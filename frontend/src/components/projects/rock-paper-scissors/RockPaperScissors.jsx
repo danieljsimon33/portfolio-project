@@ -29,7 +29,8 @@ export default function RockPaperScissors() {
         </button>
 
         <p className="picks">
-          You picked: <img src="" alt="player move" />
+          You picked: <img src={``} alt="player move" />
+          {/* not done here! */}
         </p>
 
         <p className="results">
