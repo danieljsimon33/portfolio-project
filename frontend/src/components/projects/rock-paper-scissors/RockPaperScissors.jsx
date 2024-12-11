@@ -2,7 +2,6 @@ import { useState } from "react";
 
 export default function RockPaperScissors() {
   const [gameStats, setGameStats] = useState({
-    isAutoPlaying: false,
     scores: {
       wins: 0,
       losses: 0,
@@ -10,6 +9,12 @@ export default function RockPaperScissors() {
     },
     gameResult: null // this will usually be a number 1-3 that indicates win/loss/tie
   });
+  const [gameStatsText, setGameStatsText] = useState({
+    playerMoveText: "",
+    computerMoveText: "",
+    gameResultText: ""
+  });
+  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
 
   return (
     <div className="page-container">
@@ -29,7 +34,8 @@ export default function RockPaperScissors() {
         </button>
 
         <p className="picks">
-          You picked: <img src={``} alt="player move" />
+          You picked:
+          <img src={`rps-images/${null}-emoji.png`} alt="player move" />
           {/* not done here! */}
         </p>
 
@@ -50,10 +56,9 @@ export default function RockPaperScissors() {
         </p>
 
         <button className="reset-button">Reset Game</button>
-        <button onclick="">
-          Auto Play: {gameStats.isAutoPlaying ? "ON" : "OFF"}
-        </button>
+        <button onclick="">Auto Play: {isAutoPlaying ? "ON" : "OFF"}</button>
       </div>
     </div>
   );
 }
+// to do: decide where the game result text is set

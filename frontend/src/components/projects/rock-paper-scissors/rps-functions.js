@@ -1,15 +1,11 @@
-export function updateGameText(gameStats) {
+export function updateGameText(playerMoveNum, computerMoveNum) {
   return {
     playerMove:
-      gameStats.playerMoveNum === 1
-        ? "rock"
-        : gameStats.playerMoveNum === 2
-        ? "paper"
-        : "scissors",
+      playerMoveNum === 1 ? "rock" : playerMoveNum === 2 ? "paper" : "scissors",
     computerMove:
-      gameStats.computerMoveNum === 1
+      computerMoveNum === 1
         ? "rock"
-        : gameStats.computerMoveNum === 2
+        : computerMoveNum === 2
         ? "paper"
         : "scissors"
   };
