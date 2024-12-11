@@ -16,6 +16,11 @@ export default function NavBar() {
             About Me
           </Link>
         </li>
+        <li>
+          <Link className="nav-link" to="/projects">
+            Projects
+          </Link>
+        </li>
         {!localStorage.getItem("token") ? (
           <>
             <li>

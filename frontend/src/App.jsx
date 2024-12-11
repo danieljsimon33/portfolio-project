@@ -8,35 +8,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 
 import { fetchUserFromToken } from "./utilities/authFunctions";
-
-/* 
-const [user, setUser] = useState(null);
-
-useEffect()
-- on every loop, try to figure out if there is an authenticated user or not
-
-  - try and get the token
-
-  yes token?
-  - get user from token
-
-    does user exist (and is therefore authorized bc token exists in local storage already)?
-    - setUser()
-
-    no?
-    - remove token from local storage
-
-
-## In the return statement ##
-is there a user?
-- hide the register and login tabs
-- show a new tab, logout
-
-no?
-- redirect to the landing page
-- show the sign up and log in tabs
-
-*/
+import Projects from "./components/projects/project-parent-page/Projects";
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -68,6 +40,7 @@ export default function App() {
         <Route path="/about" element={<About />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/projects" element={<Projects />} />
       </Routes>
     </div>
   );

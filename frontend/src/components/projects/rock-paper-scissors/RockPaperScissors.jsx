@@ -32,13 +32,21 @@ export default function RockPaperScissors() {
         <button className="scissors-button">
           <img src="rps-images/scissors-emoji.png" alt="scissors" />
         </button>
+      </div>
 
+      <div className="results-board">
         <p className="picks">
           You picked:
-          <img src={`rps-images/${null}-emoji.png`} alt="player move" />
-          {/* not done here! */}
+          <img
+            src={`rps-images/${gameStatsText.playerMoveText}-emoji.png`}
+            alt="player move"
+          />
+          Computer picked:
+          <img
+            src={`rps-images/${gameStatsText.computerMoveText}-emoji.png`}
+            alt="computer move"
+          />
         </p>
-
         <p className="results">
           Result:
           {gameStats.gameResult === null
@@ -49,15 +57,16 @@ export default function RockPaperScissors() {
             ? "you lost"
             : "tie"}
         </p>
-
         <p className="scores">
           Wins: {gameStats.scores.wins} Losses: {gameStats.scores.losses}
           Ties: {gameStats.scores.ties}
         </p>
-
-        <button className="reset-button">Reset Game</button>
-        <button onclick="">Auto Play: {isAutoPlaying ? "ON" : "OFF"}</button>
       </div>
+
+      <button className="reset-button">Reset Game</button>
+      <button onclick={() => setIsAutoPlaying((prevValue) => !prevValue)}>
+        Auto Play: {isAutoPlaying ? "ON" : "OFF"}
+      </button>
     </div>
   );
 }
