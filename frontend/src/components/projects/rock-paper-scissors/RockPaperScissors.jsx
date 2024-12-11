@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import "./RockPaperScissors.css";
+
 export default function RockPaperScissors() {
   const [gameStats, setGameStats] = useState({
     scores: {
@@ -21,26 +23,39 @@ export default function RockPaperScissors() {
       <h2>Rock Paper Scissors</h2>
 
       <div className="game-board">
-        <button className="rock-button">
-          <img src="rps-images/rock-emoji.png" alt="rock" />
+        <button className="rps-move-button">
+          <img
+            src="rps-images/rock-emoji.png"
+            alt="rock"
+            className="rps-move-image"
+          />
         </button>
 
-        <button className="paper-button">
-          <img src="rps-images/paper-emoji.png" alt="paper" />
+        <button className="rps-move-button">
+          <img
+            src="rps-images/paper-emoji.png"
+            alt="paper"
+            className="rps-move-image"
+          />
         </button>
 
-        <button className="scissors-button">
-          <img src="rps-images/scissors-emoji.png" alt="scissors" />
+        <button className="rps-move-button">
+          <img
+            src="rps-images/scissors-emoji.png"
+            alt="scissors"
+            className="rps-move-image"
+          />
         </button>
       </div>
 
       <div className="results-board">
-        <p className="picks">
+        <p className="rps-info">
           You picked:
           {gameStatsText.playerMoveText ? (
             <img
               src={`rps-images/${gameStatsText.playerMoveText}-emoji.png`}
               alt="player move"
+              className="rps-results-image"
             />
           ) : (
             " no move selected. "
@@ -50,12 +65,14 @@ export default function RockPaperScissors() {
             <img
               src={`rps-images/${gameStatsText.computerMoveText}-emoji.png`}
               alt="computer move"
+              className="rps-results-image"
             />
           ) : (
             " please select a move to start a round."
           )}
         </p>
-        <p className="results">
+
+        <p className="rps-info">
           Results:
           {gameStats.gameResult === null
             ? ""
@@ -65,7 +82,8 @@ export default function RockPaperScissors() {
             ? "you lost"
             : "tie"}
         </p>
-        <p className="scores">
+
+        <p className="rps-info">
           Wins: {gameStats.scores.wins} Losses: {gameStats.scores.losses} Ties:{" "}
           {gameStats.scores.ties}
         </p>

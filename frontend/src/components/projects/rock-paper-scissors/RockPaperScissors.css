@@ -1,0 +1,19 @@
+.rps-move-image {
+  width: 100px;
+}
+
+.rps-results-image {
+  width: 75px;
+}
+
+.rps-move-button {
+  background: none;
+  border: 4px solid white;
+  border-radius: 100px;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.rps-info {
+  color: white;
+}
