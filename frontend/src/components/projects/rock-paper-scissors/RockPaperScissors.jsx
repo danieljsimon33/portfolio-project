@@ -49,11 +49,8 @@ export default function RockPaperScissors() {
     }));
   }
 
-  function handleSetGameStatsText(
-    moveNum,
-    newGameResultNum,
-    newComputerMoveNum
-  ) {
+  // prettier-ignore
+  function handleSetGameStatsText( moveNum, newGameResultNum, newComputerMoveNum ) {
     setGameStatsText(() => ({
       playerMoveText: moveNumToText(moveNum),
       computerMoveText: moveNumToText(newComputerMoveNum),
