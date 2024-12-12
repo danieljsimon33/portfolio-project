@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import "./RockPaperScissors.css";
 
 import {
@@ -32,25 +31,34 @@ export default function RockPaperScissors() {
   }
 
   function handleSelectMove(moveNum) {
-    setGameStats((prevStats) => {
-      let newComputerMoveNum = computerMove();
-      let newGameResultNum = numericalPlayGame(moveNum, newComputerMoveNum);
-      let gameResultArray = gameScoresArray(newGameResultNum);
+    let newComputerMoveNum = computerMove();
+    let newGameResultNum = numericalPlayGame(moveNum, newComputerMoveNum);
+    let gameResultArray = gameScoresArray(newGameResultNum);
 
-      setGameStatsText(() => ({
-        playerMoveText: moveNumToText(moveNum),
-        computerMoveText: moveNumToText(newComputerMoveNum),
-        gameResultText: gameResultNumToText(newGameResultNum)
-      }));
+    handleSetGameStats(gameResultArray);
+    handleSetGameStatsText(moveNum, newGameResultNum, newComputerMoveNum);
+  }
 
-      return {
-        scores: {
-          wins: prevStats.scores.wins + gameResultArray[0],
-          losses: prevStats.scores.losses + gameResultArray[1],
-          ties: prevStats.scores.ties + gameResultArray[2]
-        }
-      };
-    });
+  function handleSetGameStats(gameResultArray) {
+    setGameStats((prevStats) => ({
+      scores: {
+        wins: prevStats.scores.wins + gameResultArray[0],
+        losses: prevStats.scores.losses + gameResultArray[1],
+        ties: prevStats.scores.ties + gameResultArray[2]
+      }
+    }));
+  }
+
+  function handleSetGameStatsText(
+    moveNum,
+    newGameResultNum,
+    newComputerMoveNum
+  ) {
+    setGameStatsText(() => ({
+      playerMoveText: moveNumToText(moveNum),
+      computerMoveText: moveNumToText(newComputerMoveNum),
+      gameResultText: gameResultNumToText(newGameResultNum)
+    }));
   }
 
   return (
@@ -63,7 +71,6 @@ export default function RockPaperScissors() {
             src="rps-images/rock-emoji.png"
             alt="rock"
             className="rps-move-image"
-            onClick={() => handleSelectMove(1)}
           />
         </button>
 
@@ -72,7 +79,6 @@ export default function RockPaperScissors() {
             src="rps-images/paper-emoji.png"
             alt="paper"
             className="rps-move-image"
-            onClick={() => handleSelectMove(2)}
           />
         </button>
 
@@ -81,7 +87,6 @@ export default function RockPaperScissors() {
             src="rps-images/scissors-emoji.png"
             alt="scissors"
             className="rps-move-image"
-            onClick={() => handleSelectMove(3)}
           />
         </button>
       </div>
@@ -125,3 +130,7 @@ export default function RockPaperScissors() {
     </div>
   );
 }
+/* 
+rps-logic-functions.js
+rps-scoring-functions.js
+*/
