@@ -50,7 +50,7 @@ export default function RockPaperScissors() {
   }
 
   // prettier-ignore
-  function handleSetGameStatsText( moveNum, newGameResultNum, newComputerMoveNum ) {
+  function handleSetGameStatsText(moveNum, newGameResultNum, newComputerMoveNum) {
     setGameStatsText(() => ({
       playerMoveText: moveNumToText(moveNum),
       computerMoveText: moveNumToText(newComputerMoveNum),
