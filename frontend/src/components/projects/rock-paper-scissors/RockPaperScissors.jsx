@@ -124,6 +124,11 @@ export default function RockPaperScissors() {
       <button onClick={() => handleSetAutoPlay}>
         Auto Play: {isAutoPlaying ? "ON" : "OFF"}
       </button>
+
+      <div className="leaderboard">
+        <button>Load Leaderboard</button>
+        {/* STUFF */}
+      </div>
     </div>
   );
 }
