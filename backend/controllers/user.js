@@ -82,4 +82,22 @@ const updateStats = async (req, res) => {
   }
 };
 
-module.exports = { register, login, updateStats };
+const getStats = async (req, res) => {
+  const { userId } = req.body;
+
+  try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: "[Backend] User not found." });
+    }
+
+    // stuff for getting stats
+  } catch (error) {
+    res
+      .status(400)
+      .json({ message: "[Backend] Error retrieving user stats" + error });
+  }
+};
+
+module.exports = { register, login, updateStats, getStats };

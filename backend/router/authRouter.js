@@ -13,5 +13,6 @@ router.get("/validate-token", authenticateUser, (req, res) =>
 );
 
 router.post("/update-stats", userController.updateStats);
+router.get("/get-stats", userController.getStats);
 
 module.exports = router;
