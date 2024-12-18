@@ -57,4 +57,23 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { register, login };
+const updateStats = async (req, res) => {
+  const { userId } = req.body;
+
+  try {
+  } catch (error) {
+    res
+      .status(400)
+      .json({ message: "[Backend] Error updating user stats" + error });
+  }
+
+  /* 
+  set userId const
+  set const for info that is being updated
+
+  
+  
+  */
+};
+
+module.exports = { register, login, updateStats };

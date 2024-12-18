@@ -12,4 +12,6 @@ router.get("/validate-token", authenticateUser, (req, res) =>
   res.status(200).json({ user: req.user, message: "[Backend] Token verified." })
 );
 
+router.post("/update-stats", userController.updateStats);
+
 module.exports = router;
