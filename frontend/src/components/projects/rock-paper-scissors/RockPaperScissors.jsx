@@ -68,7 +68,7 @@ export default function RockPaperScissors() {
       <h2>Rock Paper Scissors</h2>
 
       <div className="game-board">
-        <button className="rps-move-button" onClick={handleSelectMove(1)}>
+        <button className="rps-move-button" onClick={() => handleSelectMove(1)}>
           <img
             src="rps-images/rock-emoji.png"
             alt="rock"
@@ -76,7 +76,7 @@ export default function RockPaperScissors() {
           />
         </button>
 
-        <button className="rps-move-button" onClick={handleSelectMove(2)}>
+        <button className="rps-move-button" onClick={() => handleSelectMove(2)}>
           <img
             src="rps-images/paper-emoji.png"
             alt="paper"
@@ -84,7 +84,7 @@ export default function RockPaperScissors() {
           />
         </button>
 
-        <button className="rps-move-button" onClick={handleSelectMove(3)}>
+        <button className="rps-move-button" onClick={() => handleSelectMove(3)}>
           <img
             src="rps-images/scissors-emoji.png"
             alt="scissors"
