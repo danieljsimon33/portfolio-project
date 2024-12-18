@@ -20,7 +20,7 @@ mongoose
   .then(() => console.log("MongoDB connected."))
   .catch((error) => console.log(error, "MongoDB connection attempt failed."));
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 app.use("/api/users", authRouter);
 
