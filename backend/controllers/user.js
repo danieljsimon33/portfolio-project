@@ -58,22 +58,28 @@ const login = async (req, res) => {
 };
 
 const updateStats = async (req, res) => {
-  const { userId } = req.body;
+  const { userId, newWins, newLosses, newTies } = req.body;
 
   try {
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: "[Backend] User not found." });
+    }
+
+    user.stats.wins += newWins;
+    user.stats.losses += newLosses;
+    user.stats.ties += newTies;
+
+    await user.save();
+    res
+      .status(200)
+      .json({ message: "[Backend] User stats updated successfully" });
   } catch (error) {
     res
       .status(400)
       .json({ message: "[Backend] Error updating user stats" + error });
   }
-
-  /* 
-  set userId const
-  set const for info that is being updated
-
-  
-  
-  */
 };
 
 module.exports = { register, login, updateStats };
