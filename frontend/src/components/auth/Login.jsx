@@ -15,13 +15,16 @@ export default function Login() {
     console.log(formData);
 
     try {
-      const response = await fetch("http://localhost:3000/api/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(formData)
-      });
+      const response = await fetch(
+        "https://portfolio-project-hyba.onrender.com/api/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(formData)
+        }
+      );
 
       if (!response.ok) {
         const errorText = await response.json();

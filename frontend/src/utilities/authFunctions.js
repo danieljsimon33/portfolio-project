@@ -1,7 +1,7 @@
 export async function fetchUserFromToken(token) {
   try {
     const response = await fetch(
-      "http://localhost:3000/api/users/validate-token",
+      "https://portfolio-project-hyba.onrender.com/api/users/validate-token",
       {
         method: "GET",
         headers: {
