@@ -92,7 +92,12 @@ const getStats = async (req, res) => {
       return res.status(404).json({ message: "[Backend] User not found." });
     }
 
-    // stuff for getting stats
+    res
+      .status(200)
+      .json({
+        message: "[Backend] User stats successfully retrieved.",
+        stats: user.stats
+      });
   } catch (error) {
     res
       .status(400)
