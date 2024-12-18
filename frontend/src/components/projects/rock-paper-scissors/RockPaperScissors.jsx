@@ -8,6 +8,7 @@ import {
   gameResultNumToText,
   moveNumToText
 } from "./rps-functions.js";
+import { updateStats } from "./rps-user-functions.js";
 
 export default function RockPaperScissors() {
   const [gameStats, setGameStats] = useState({
@@ -56,6 +57,10 @@ export default function RockPaperScissors() {
       computerMoveText: moveNumToText(newComputerMoveNum),
       gameResultText: gameResultNumToText(newGameResultNum)
     }));
+  }
+
+  function handleUpdateUserStats() {
+    // re-render
   }
 
   return (
@@ -125,9 +130,16 @@ export default function RockPaperScissors() {
         Auto Play: {isAutoPlaying ? "ON" : "OFF"}
       </button>
 
-      <div className="leaderboard">
+      <div className="stats">
         <button>Load Leaderboard</button>
-        {/* STUFF */}
+
+        <div className="leaderboard"></div>
+
+        <button onClick={() => handleUpdateUserStats}>
+          Update User Statistics
+        </button>
+
+        <div className="user-stats"></div>
       </div>
     </div>
   );
