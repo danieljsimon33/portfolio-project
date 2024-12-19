@@ -48,4 +48,15 @@ const getStats = async (req, res) => {
   }
 };
 
-module.exports = { updateStats, getStats };
+const getLeaderboard = async (req, res) => {
+  try {
+    // get the big list (up to 20 documents)
+    // respond with an object that contains an array of objects, each of which contains username and stats
+  } catch (error) {
+    res
+      .status(404)
+      .json({ message: "[Backend] Error retrieving leaderboard" + error });
+  }
+};
+
+module.exports = { updateStats, getStats, getLeaderboard };

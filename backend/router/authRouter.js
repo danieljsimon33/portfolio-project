@@ -15,5 +15,6 @@ router.get("/validate-token", authenticateUser, (req, res) =>
 
 router.post("/update-stats", userStatsController.updateStats);
 router.get("/get-stats", userStatsController.getStats);
+router.get("/get-leaderboard", userStatsController.getLeaderboard);
 
 module.exports = router;
