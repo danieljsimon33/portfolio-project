@@ -11,7 +11,8 @@ import {
   computerMove,
   gameScoresArray,
   gameResultNumToText,
-  moveNumToText
+  moveNumToText,
+  updateLocalStorage
 } from "../functions/rps-functions.js";
 
 export default function RockPaperScissors() {
@@ -29,12 +30,6 @@ export default function RockPaperScissors() {
     gameResultText: ""
   });
 
-  /* const [isAutoPlaying, setIsAutoPlaying] = useState(false);
-
-  function handleSetAutoPlay() {
-    setIsAutoPlaying((prevValue) => !prevValue);
-  } */
-
   function handleSelectMove(moveNum) {
     let newComputerMoveNum = computerMove();
     let newGameResultNum = numericalPlayGame(moveNum, newComputerMoveNum);
@@ -42,6 +37,20 @@ export default function RockPaperScissors() {
 
     handleSetGameStats(gameResultArray);
     handleSetGameStatsText(moveNum, newGameResultNum, newComputerMoveNum);
+  }
+
+  function handleSelectMoveTwo(moveNum) {
+    let newComputerMoveNum = computerMove();
+    let newGameResultNum = numericalPlayGame(moveNum, newComputerMoveNum);
+    let gameResultArray = gameScoresArray(newGameResultNum);
+
+    addResultsToLocalStorage(gameResultArray);
+  }
+
+  function addResultsToLocalStorage(resultsArray) {
+    updateLocalStorage("wins", resultsArray[0]);
+    updateLocalStorage("losses", resultsArray[1]);
+    updateLocalStorage("ties", resultsArray[2]);
   }
 
   function handleSetGameStats(gameResultArray) {
@@ -72,9 +81,6 @@ export default function RockPaperScissors() {
       <ResultsBoard />
 
       <button className="render-button">Update Leaderboard</button>
-      {/* <button onClick={() => handleSetAutoPlay}>
-        Auto Play: {isAutoPlaying ? "ON" : "OFF"}
-      </button> */}
 
       <Leaderboard />
       <UserStats />
