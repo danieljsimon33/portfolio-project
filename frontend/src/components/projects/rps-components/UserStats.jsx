@@ -1,6 +1,14 @@
+import { updateStats } from "../functions/rps-user-functions";
+import React from "react";
+
 export default function UserStats() {
   function handleUpdateUserStats() {
-    // get stuff from local storage
+    updateStats(
+      localStorage.getItem("token"),
+      localStorage.getItem("wins"),
+      localStorage.getItem("losses"),
+      localStorage.getItem("ties")
+    );
     // re-render
   }
 
@@ -9,6 +17,10 @@ export default function UserStats() {
       <button onClick={() => handleUpdateUserStats}>
         Update User Statistics
       </button>
+
+      <p>Your wins:</p>
+      <p>Your losses:</p>
+      <p>Your ties:</p>
     </div>
   );
 }

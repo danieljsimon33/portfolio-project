@@ -21,7 +21,7 @@ export default function RockPaperScissors() {
       <ResultsBoard />
 
       <Leaderboard />
-      <UserStats />
+      {/* <UserStats /> */}
     </div>
   );
 }
