@@ -8,7 +8,7 @@ import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 
 import { fetchUserFromToken } from "./utilities/authFunctions";
-import Projects from "./components/projects/project-parent-page/Projects";
+import Projects from "./components/projects/Projects";
 
 export default function App() {
   const [user, setUser] = useState(null);

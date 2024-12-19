@@ -1,7 +1,0 @@
-- [ ] Transfer game code and make compatible with JSX rather than separate HTML and JS files
-  - [ ]
-  - [ ]
-- [ ] Add backend integration
-  - [ ] User scores
-  - [ ] Leaderboard
-  - [ ]

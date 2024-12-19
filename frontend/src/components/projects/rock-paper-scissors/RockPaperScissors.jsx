@@ -1,14 +1,16 @@
 import { useState } from "react";
 import "./RockPaperScissors.css";
 
+import GameBoard from "../rps-components/GameBoard.jsx";
+
 import {
   numericalPlayGame,
   computerMove,
   gameScoresArray,
   gameResultNumToText,
   moveNumToText
-} from "./rps-functions.js";
-import { updateStats } from "./rps-user-functions.js";
+} from "../functions/rps-functions.js";
+import { updateStats } from "../functions/rps-user-functions.js";
 
 export default function RockPaperScissors() {
   const [gameStats, setGameStats] = useState({
@@ -67,31 +69,7 @@ export default function RockPaperScissors() {
     <div className="page-container">
       <h2>Rock Paper Scissors</h2>
 
-      <div className="game-board">
-        <button className="rps-move-button" onClick={() => handleSelectMove(1)}>
-          <img
-            src="rps-images/rock-emoji.png"
-            alt="rock"
-            className="rps-move-image"
-          />
-        </button>
-
-        <button className="rps-move-button" onClick={() => handleSelectMove(2)}>
-          <img
-            src="rps-images/paper-emoji.png"
-            alt="paper"
-            className="rps-move-image"
-          />
-        </button>
-
-        <button className="rps-move-button" onClick={() => handleSelectMove(3)}>
-          <img
-            src="rps-images/scissors-emoji.png"
-            alt="scissors"
-            className="rps-move-image"
-          />
-        </button>
-      </div>
+      <GameBoard handleSelectMove={handleSelectMove} />
 
       <div className="results-board">
         <p className="rps-info">
