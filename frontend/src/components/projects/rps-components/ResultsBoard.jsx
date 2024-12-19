@@ -46,4 +46,3 @@ export default function ResultsBoard() {
     {gameStats.scores.ties}
   </p>
 */
-// return Math.sign(moveDiff) === 0 ? 3 : Math.sign(moveDiff) === -1 ? 2 : 1;

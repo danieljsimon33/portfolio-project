@@ -1,7 +1,10 @@
-export function updateLocalStorage(itemName, addNum) {
-  let oldNum = 0;
-  oldNum += parseInt(localStorage.getItem(itemName));
-  localStorage.setItem(itemName, oldNum + addNum);
+export function altHandleSelectMove(moveNum) {
+  let newComputerMoveNum = computerMove();
+  let newGameResultNum = numericalPlayGame(moveNum, newComputerMoveNum);
+  let gameResultArray = gameScoresArray(newGameResultNum);
+
+  addResultsToLocalStorage(gameResultArray);
+  localStorage.setItem("result", newGameResultNum);
 }
 
 export function addResultsToLocalStorage(resultsArray) {
@@ -10,10 +13,8 @@ export function addResultsToLocalStorage(resultsArray) {
   updateLocalStorage("ties", resultsArray[2]);
 }
 
-export function altHandleSelectMove(moveNum) {
-  let newComputerMoveNum = computerMove();
-  let newGameResultNum = numericalPlayGame(moveNum, newComputerMoveNum);
-  let gameResultArray = gameScoresArray(newGameResultNum);
-
-  addResultsToLocalStorage(gameResultArray);
+export function updateLocalStorage(itemName, addNum) {
+  let oldNum = 0;
+  oldNum += parseInt(localStorage.getItem(itemName));
+  localStorage.setItem(itemName, oldNum + addNum);
 }

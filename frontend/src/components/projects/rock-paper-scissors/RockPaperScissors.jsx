@@ -5,33 +5,12 @@ import Leaderboard from "../rps-components/Leaderboard.jsx";
 import UserStats from "../rps-components/UserStats.jsx";
 import ResultsBoard from "../rps-components/ResultsBoard.jsx";
 
-import {
-  numericalPlayGame,
-  computerMove,
-  gameScoresArray,
-  gameResultNumToText,
-  moveNumToText,
-  updateLocalStorage
-} from "../functions/rps-game-functions.js";
-import {} from "../functions/rps-storage-functions.js";
+import { altHandleSelectMove } from "../functions/rps-storage-functions.js";
 
 export default function RockPaperScissors() {
   function handleSelectMove(moveNum) {
-    let newComputerMoveNum = computerMove();
-    let newGameResultNum = numericalPlayGame(moveNum, newComputerMoveNum);
-    let gameResultArray = gameScoresArray(newGameResultNum);
-
-    handleSetGameStats(gameResultArray);
-    handleSetGameStatsText(moveNum, newGameResultNum, newComputerMoveNum);
+    altHandleSelectMove(moveNum);
   }
-
-  /* function handleSetGameStatsText(moveNum, newGameResultNum, newComputerMoveNum) {
-    setGameStatsText(() => ({
-      playerMoveText: moveNumToText(moveNum),
-      computerMoveText: moveNumToText(newComputerMoveNum),
-      gameResultText: gameResultNumToText(newGameResultNum)
-    }));
-  } */
 
   return (
     <div className="page-container">

@@ -41,3 +41,4 @@ export function numericalPlayGame(playerMoveNum, computerMoveNum) {
       return 1; //win
   }
 }
+// return Math.sign(moveDiff) === 0 ? 3 : Math.sign(moveDiff) === -1 ? 2 : 1;
