@@ -58,7 +58,7 @@ const login = async (req, res) => {
 };
 
 const updateStats = async (req, res) => {
-  const { userId, newWins, newLosses, newTies } = req.body;
+  const { userId, stats } = req.body;
 
   try {
     const user = await User.findById(userId);
@@ -67,9 +67,9 @@ const updateStats = async (req, res) => {
       return res.status(404).json({ message: "[Backend] User not found." });
     }
 
-    user.stats.wins += newWins;
-    user.stats.losses += newLosses;
-    user.stats.ties += newTies;
+    user.stats.wins += stats.newWins;
+    user.stats.losses += stats.newLosses;
+    user.stats.ties += stats.newTies;
 
     await user.save();
     res
@@ -92,12 +92,10 @@ const getStats = async (req, res) => {
       return res.status(404).json({ message: "[Backend] User not found." });
     }
 
-    res
-      .status(200)
-      .json({
-        message: "[Backend] User stats successfully retrieved.",
-        stats: user.stats
-      });
+    res.status(200).json({
+      message: "[Backend] User stats successfully retrieved.",
+      stats: user.stats
+    });
   } catch (error) {
     res
       .status(400)
