@@ -2,6 +2,8 @@ import { useState } from "react";
 import "./RockPaperScissors.css";
 
 import GameBoard from "../rps-components/GameBoard.jsx";
+import Leaderboard from "../rps-components/Leaderboard.jsx";
+import UserStats from "../rps-components/UserStats.jsx";
 
 import {
   numericalPlayGame,
@@ -61,10 +63,6 @@ export default function RockPaperScissors() {
     }));
   }
 
-  function handleUpdateUserStats() {
-    // re-render
-  }
-
   return (
     <div className="page-container">
       <h2>Rock Paper Scissors</h2>
@@ -108,21 +106,8 @@ export default function RockPaperScissors() {
         Auto Play: {isAutoPlaying ? "ON" : "OFF"}
       </button>
 
-      <div className="stats">
-        <button>Load Leaderboard</button>
-
-        <div className="leaderboard"></div>
-
-        <button onClick={() => handleUpdateUserStats}>
-          Update User Statistics
-        </button>
-
-        <div className="user-stats"></div>
-      </div>
+      <Leaderboard />
+      <UserStats />
     </div>
   );
 }
-/* 
-rps-logic-functions.js
-rps-scoring-functions.js
-*/
