@@ -1,5 +1,6 @@
 const express = require("express");
 const userController = require("../controllers/user");
+const userStatsController = require("../controllers/userStats");
 
 const authenticateUser = require("../guard");
 
@@ -12,7 +13,7 @@ router.get("/validate-token", authenticateUser, (req, res) =>
   res.status(200).json({ user: req.user, message: "[Backend] Token verified." })
 );
 
-router.post("/update-stats", userController.updateStats);
-router.get("/get-stats", userController.getStats);
+router.post("/update-stats", userStatsController.updateStats);
+router.get("/get-stats", userStatsController.getStats);
 
 module.exports = router;
