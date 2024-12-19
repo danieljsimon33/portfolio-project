@@ -4,6 +4,7 @@ import "./RockPaperScissors.css";
 import GameBoard from "../rps-components/GameBoard.jsx";
 import Leaderboard from "../rps-components/Leaderboard.jsx";
 import UserStats from "../rps-components/UserStats.jsx";
+import ResultsBoard from "../rps-components/ResultsBoard.jsx";
 
 import {
   numericalPlayGame,
@@ -12,7 +13,6 @@ import {
   gameResultNumToText,
   moveNumToText
 } from "../functions/rps-functions.js";
-import { updateStats } from "../functions/rps-user-functions.js";
 
 export default function RockPaperScissors() {
   const [gameStats, setGameStats] = useState({
@@ -29,11 +29,11 @@ export default function RockPaperScissors() {
     gameResultText: ""
   });
 
-  const [isAutoPlaying, setIsAutoPlaying] = useState(false);
+  /* const [isAutoPlaying, setIsAutoPlaying] = useState(false);
 
   function handleSetAutoPlay() {
     setIsAutoPlaying((prevValue) => !prevValue);
-  }
+  } */
 
   function handleSelectMove(moveNum) {
     let newComputerMoveNum = computerMove();
@@ -65,46 +65,16 @@ export default function RockPaperScissors() {
 
   return (
     <div className="page-container">
-      <h2>Rock Paper Scissors</h2>
+      <h2>Rock, Paper, Scissors!</h2>
 
       <GameBoard handleSelectMove={handleSelectMove} />
 
-      <div className="results-board">
-        <p className="rps-info">
-          You picked:
-          {gameStatsText.playerMoveText ? (
-            <img
-              src={`rps-images/${gameStatsText.playerMoveText}-emoji.png`}
-              alt="player move"
-              className="rps-results-image"
-            />
-          ) : (
-            " no move selected. "
-          )}
-          Computer picked:
-          {gameStatsText.computerMoveText ? (
-            <img
-              src={`rps-images/${gameStatsText.computerMoveText}-emoji.png`}
-              alt="computer move"
-              className="rps-results-image"
-            />
-          ) : (
-            " please select a move to start a round."
-          )}
-        </p>
+      <ResultsBoard />
 
-        <p className="rps-info">Results: {gameStatsText.gameResultText}</p>
-
-        <p className="rps-info">
-          Wins: {gameStats.scores.wins} Losses: {gameStats.scores.losses} Ties:{" "}
-          {gameStats.scores.ties}
-        </p>
-      </div>
-
-      <button className="reset-button">Reset Game</button>
-      <button onClick={() => handleSetAutoPlay}>
+      <button className="render-button">Update Leaderboard</button>
+      {/* <button onClick={() => handleSetAutoPlay}>
         Auto Play: {isAutoPlaying ? "ON" : "OFF"}
-      </button>
+      </button> */}
 
       <Leaderboard />
       <UserStats />
