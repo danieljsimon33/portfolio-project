@@ -1,5 +1,18 @@
+import {
+  gameResultNumToText,
+  moveNumToText
+} from "../functions/rps-game-functions";
+
 export default function ResultsBoard() {
-  return <div className="results-board"></div>;
+  return (
+    <div className="results-board">
+      <p>Your move: {moveNumToText(localStorage.getItem("playeMove"))}</p>
+      <p>
+        Computer move: {moveNumToText(localStorage.getItem("computerMove"))}
+      </p>
+      <p>Result: {gameResultNumToText(localStorage.getItem("result"))}</p>
+    </div>
+  );
 }
 
 /* 

@@ -41,9 +41,3 @@ export function numericalPlayGame(playerMoveNum, computerMoveNum) {
       return 1; //win
   }
 }
-
-export function updateLocalStorage(itemName, addNum) {
-  let oldNum = 0;
-  oldNum += parseInt(localStorage.getItem(itemName));
-  localStorage.setItem(itemName, oldNum + addNum);
-}
