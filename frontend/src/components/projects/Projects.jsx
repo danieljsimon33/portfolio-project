@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import RockPaperScissors from "../rock-paper-scissors/RockPaperScissors";
+import RockPaperScissors from "./rock-paper-scissors/RockPaperScissors";
 
 export default function Projects() {
   return (

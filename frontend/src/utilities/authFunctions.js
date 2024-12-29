@@ -1,15 +1,15 @@
+// import env from "react-dotenv";
+import { backendUrl } from "../components/auth/variables";
+
 export async function fetchUserFromToken(token) {
   try {
-    const response = await fetch(
-      "https://portfolio-project-hyba.onrender.com/api/users/validate-token",
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`
-        }
+    const response = await fetch(`${backendUrl}/api/users/validate-token`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
       }
-    );
+    });
 
     if (!response.ok) {
       const errorText = await response.text();

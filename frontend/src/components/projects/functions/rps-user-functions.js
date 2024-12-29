@@ -1,20 +1,18 @@
-require("dotenv").config();
+// import env from "react-dotenv";
+import { backendUrl } from "../../auth/variables.js";
 
 export async function updateStats(userId, wins, losses, ties) {
   try {
-    const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/update-stats`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "applicaton/json"
-        },
-        body: JSON.stringify({
-          userId: userId,
-          stats: { newWins: wins, newLosses: losses, newTies: ties }
-        })
-      }
-    );
+    const response = await fetch(`${backendUrl}/update-stats`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "applicaton/json"
+      },
+      body: JSON.stringify({
+        userId: userId,
+        stats: { newWins: wins, newLosses: losses, newTies: ties }
+      })
+    });
 
     if (!response.ok) {
       const errorText = await response.json();
@@ -31,18 +29,15 @@ export async function updateStats(userId, wins, losses, ties) {
 
 export async function getStats(userId) {
   try {
-    const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/get-stats`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "applicaton/json"
-        },
-        body: JSON.stringify({
-          userId: userId
-        })
-      }
-    );
+    const response = await fetch(`${backendUrl}/get-stats`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "applicaton/json"
+      },
+      body: JSON.stringify({
+        userId: userId
+      })
+    });
 
     if (!response.ok) {
       const errorText = await response.json();
@@ -59,15 +54,12 @@ export async function getStats(userId) {
 
 export async function getLeaderboard() {
   try {
-    const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URL}/get-leaderboard`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "applicaton/json"
-        }
+    const response = await fetch(`${backendUrl}/get-leaderboard`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "applicaton/json"
       }
-    );
+    });
 
     if (!response.ok) {
       const errorText = await response.json();

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-require("dotenv").config();
+// import env from "react-dotenv";
+import { backendUrl } from "./variables";
 
 export default function Register() {
   const nagivate = useNavigate();
@@ -17,16 +18,13 @@ export default function Register() {
     console.log(formData);
 
     try {
-      const response = await fetch(
-        `${process.env.REACT_APP_BACKEND_URL}/api/users/register`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(formData)
-        }
-      );
+      const response = await fetch(`${backendUrl}/api/users/register`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
 
       if (!response.ok) {
         const errorText = await response.json();
