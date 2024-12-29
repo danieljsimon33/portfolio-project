@@ -1,7 +1,9 @@
+require("dotenv").config();
+
 export async function updateStats(userId, wins, losses, ties) {
   try {
     const response = await fetch(
-      "https://portfolio-project-hyba.onrender.com/update-stats",
+      `${process.env.REACT_APP_BACKEND_URL}/update-stats`,
       {
         method: "POST",
         headers: {
@@ -30,7 +32,7 @@ export async function updateStats(userId, wins, losses, ties) {
 export async function getStats(userId) {
   try {
     const response = await fetch(
-      "https://portfolio-project-hyba.onrender.com/get-stats",
+      `${process.env.REACT_APP_BACKEND_URL}/get-stats`,
       {
         method: "GET",
         headers: {
@@ -58,7 +60,7 @@ export async function getStats(userId) {
 export async function getLeaderboard() {
   try {
     const response = await fetch(
-      "https://portfolio-project-hyba.onrender.com/get-leaderboard",
+      `${process.env.REACT_APP_BACKEND_URL}/get-leaderboard`,
       {
         method: "GET",
         headers: {

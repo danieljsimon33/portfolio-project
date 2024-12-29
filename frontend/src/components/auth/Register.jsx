@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+require("dotenv").config();
 
 export default function Register() {
   const nagivate = useNavigate();
@@ -17,7 +18,7 @@ export default function Register() {
 
     try {
       const response = await fetch(
-        "https://portfolio-project-hyba.onrender.com/api/users/register",
+        `${process.env.REACT_APP_BACKEND_URL}/api/users/register`,
         {
           method: "POST",
           headers: {

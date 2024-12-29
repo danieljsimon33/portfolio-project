@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+require("dotenv").config();
 
 export default function Login() {
   const nagivate = useNavigate();
@@ -16,7 +17,7 @@ export default function Login() {
 
     try {
       const response = await fetch(
-        "https://portfolio-project-hyba.onrender.com/api/users/login",
+        `${process.env.REACT_APP_BACKEND_URL}/api/users/login`,
         {
           method: "POST",
           headers: {
