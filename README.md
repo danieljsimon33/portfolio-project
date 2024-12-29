@@ -8,7 +8,6 @@ Stuff I learned during this course:
 
 - User authentication
   - Logging in and out, making authenticated requests to the backend
-- Using databases
 - HTTP requests
   - API calls
   - Using third-party databases

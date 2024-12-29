@@ -37,7 +37,7 @@ export default function App() {
       </header>
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/about" element={<About />} />
+        {/* <Route path="/about" element={<About />} /> */}
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/projects" element={<Projects />} />

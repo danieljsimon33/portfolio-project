@@ -11,11 +11,11 @@ export default function NavBar() {
             Home
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link className="nav-link" to="/about">
             About Me
           </Link>
-        </li>
+        </li> */}
         <li>
           <Link className="nav-link" to="/projects">
             Projects
