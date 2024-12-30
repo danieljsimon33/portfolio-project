@@ -3,6 +3,10 @@
   background-color: #212121;
 }
 
+body {
+  margin: 0;
+}
+
 div.page-container {
   color: #ececec;
   margin: 0;
@@ -14,6 +18,7 @@ p {
 
 nav.nav-bar {
   background-color: #171717;
+  max-width: 100%;
 }
 
 ul.nav-list {
